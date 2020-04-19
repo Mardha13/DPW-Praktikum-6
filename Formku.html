@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Praktikum 6</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+  <body class="bg-light">
+  <div id="result"></div>
+    <div class="container" style="max-width: 700px">
+      <h4 class="mb-3">Billing Identity</h4>
+      <form id="MyForm" name="MyForm" class="needs-validation" action="prak6php.php" method="post">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="" value="" required="">
+          <div class="invalid-feedback">Valid first name is required.</div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="" value="" required>
+          <div class="invalid-feedback">Valid last name is required.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+            <div class="invalid-feedback" style="width: 100%;">Your username is required.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted">(Optional)</span></label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">Please enter a valid email address for shipping updates.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
+          <div class="invalid-feedback">Please enter your shipping address.</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Country</label>
+            <select class="custom-select d-block w-100" name="country" id="country" required>
+              <option value="">Choose...</option>
+              <option>United States</option>
+
+            </select>
+            <div class="invalid-feedback">Please select a valid country.</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">State</label>
+            <select class="custom-select d-block w-100" name="state" id="state" required>
+              <option value="">Choose...</option>
+              <option>California</option>
+              <option>New York</option>
+              <option>Los Angeles</option>
+            </select>
+            <div class="invalid-feedback">Please provide a valid state.</div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" name="zip" id="zip" placeholder="" required>
+            <div class="invalid-feedback">Zip code required.</div>
+          </div>
+        </div>
+        
+        <hr>
+
+        <h4 class="mb-3">Payment</h4>
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" value="C" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="credit">Credit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" value="D" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="debit">Debit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" value="P" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="paypal">Paypal</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" name="CCname" id="CCname" placeholder="" required>
+            <small class="text-muted">Full name as displayed on card</small>
+            <div class="invalid-feedback">Name on card is required</div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" name="CCnumber" id="CCnumber" placeholder="" required>
+            <div class="invalid-feedback">Credit card number is required</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" name="CCexpiration" id="CCexpiration" placeholder="" required>
+            <div class="invalid-feedback">Expiration date required</div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">CVV</label>
+            <input type="text" class="form-control" name="CCcvv" id="CCcvv" placeholder="" required>
+            <div class="invalid-feedback">Security code required</div>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        
+        <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="gambar">Your Identity</label>
+          <input type="file" accept="image/*" name="gambar1" disabled class="form-control" id="gambar1" placeholder="Upload your Identity here">
+          <small class="text-muted">Please use valid identity</small>
+          <div class="invalid-feedback">You must upload this file</div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="gambar">Your Photo</label>
+          <input type="file" accept="image/*" name="gambar2" class="form-control" id="gambar2" placeholder="Please Upload Your Photo here">
+          <small class="text-muted">Please use valid identity</small>
+          <div class="invalid-feedback">File format in png or jpg and size no more than 2MB</div>
+        </div>
+
+        <hr class="mb-4">
+        
+      <button id="create" name="action" value="create" class="btn btn-success btn-lg btn-block" type="submit">Insert Data</button>
+      <button id="update" name="action" value="update" class="btn btn-info btn-lg btn-block" type="submit">Update Data</button>
+      <button id="read" name="action" value="read" class="btn btn-info btn-lg btn-block" type="submit">Read Data</button>
+      <button id="delete" name="action" value="delete" class="btn btn-danger btn-lg btn-block" type="submit">Delete Data</button>
+
+      </form>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="async.js"></script>
+    <script>
+    $("#formku").submit(kirimdata);
+    $("#tresult").dataTable();
+    </script>
+  
+</body>
+</html>
